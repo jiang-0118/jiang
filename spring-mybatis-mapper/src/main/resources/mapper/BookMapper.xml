@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.softeem.mapper.BookMapper">
+
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.softeem.entity.Book">
+        <id column="id" property="id"/>
+        <result column="cover" property="cover"/>
+        <result column="title" property="title"/>
+        <result column="author" property="author"/>
+        <result column="date" property="date"/>
+        <result column="press" property="press"/>
+        <result column="abs" property="abs"/>
+        <result column="cid" property="cid"/>
+        <result column="isValid" property="isValid"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id
+        , cover, title, author, date, press, abs, cid, isValid
+    </sql>
+    <update id="updateBook" parameterType="com.softeem.entity.Book">
+        update book
+        set
+        cover=#{cover}
+        <if test="title != null">
+            ,title=#{title}
+        </if>
+        <if test="author != null">
+            ,author=#{author}
+        </if>
+        <if test="date != null">
+            ,date=#{date}
+        </if>
+        <if test="press != null">
+            ,press=#{press}
+        </if>
+        <if test="abs != null">
+            ,abs = #{abs}
+        </if>
+        <if test="cid != null">
+            ,cid=#{cid}
+        </if>
+        <if test="isValid != null">
+            ,isValid=#{isValid}
+        </if>
+        where id = #{id};
+    </update>
+    <select id="findBooksByParameters" resultMap="BaseResultMap">
+        select * from book where 1=1
+        <if test="title!=null">or title like concat('%',#{title},'%')</if>
+        <if test="author!=null">or author like concat('%',#{author},'%')</if>
+        <if test="press!=null">or press like concat('%',#{press},'%')</if>
+    </select>
+    <select id="findBooksByIds" resultType="com.softeem.entity.Book">
+        select * from book where id in
+        /*collection:表明当前集合 item:表明循环项 separator:分隔符*/
+        <foreach collection="list" item="id" separator="," open="(" close=")">#{id}</foreach>
+    </select>
+
+</mapper>
