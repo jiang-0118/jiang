@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.softeem.mapper.TFollowMapper">
+
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.softeem.entity.TFollow">
+        <id column="id" property="id" />
+        <result column="diner_id" property="dinerId" />
+        <result column="follow_diner_id" property="followDinerId" />
+        <result column="is_valid" property="isValid" />
+        <result column="create_date" property="createDate" />
+        <result column="update_date" property="updateDate" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, diner_id, follow_diner_id, is_valid, create_date, update_date
+    </sql>
+    <insert id="addFollow" parameterType="com.softeem.entity.TFollow">
+        insert into t_follow values (null,#{dinerId},#{followDinerId},#{isValid},now(),now())
+    </insert>
+    <update id="updateStatus">
+        update t_follow set is_valid=#{isValid} where diner_id=#{userId} and follow_diner_id=#{dinerId}
+    </update>
+    <select id="findFollowByDinerId" resultMap="BaseResultMap">
+        SELECT * from t_follow where diner_id=#{userId} and follow_diner_id=#{dinerId}
+    </select>
+
+</mapper>

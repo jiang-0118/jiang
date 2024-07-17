@@ -1,0 +1,33 @@
+### 测试登录
+POST http://localhost:8080/diners/login
+Content-Type: application/x-www-form-urlencoded
+
+username=test1&password=123456
+
+
+###测试上下文
+GET http://localhost:8080/diners/context
+Accept: application/json
+token: eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjEyMTkxNTgsImV4cCI6MTcyMTIyNjM1OCwidXNlckluZm8iOiJ7XCJpZFwiOjYsXCJ1c2VybmFtZVwiOlwidGVzdDFcIn0ifQ.YyKPlXr5YD3tHa95bFVHhvCOSwhOjMknwmeDFmggYKc
+
+
+### 测试关注取关
+GET http://localhost:8080/follow/follow/5/0
+Accept: application/json
+token: eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjEyMTkxNTgsImV4cCI6MTcyMTIyNjM1OCwidXNlckluZm8iOiJ7XCJpZFwiOjYsXCJ1c2VybmFtZVwiOlwidGVzdDFcIn0ifQ.YyKPlXr5YD3tHa95bFVHhvCOSwhOjMknwmeDFmggYKc
+
+### 测试共同关注的好友
+GET http://localhost:8080/follow/findCommonsFriends/1
+Accept: application/json
+token: eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjExODU0ODksImV4cCI6MTcyMTE5MjY4OSwidXNlckluZm8iOiJ7XCJpZFwiOjUsXCJ1c2VybmFtZVwiOlwidGVzdDBcIn0ifQ.bJ8KioWcjP9alu45dY0J1VSib_KQxmmB9cNisAQQp44
+
+
+### 测试发布动态
+POST http://localhost:8080/feeds/create
+Content-Type: application/x-www-form-urlencoded
+token: eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjEyMTY5NzksImV4cCI6MTcyMTIyNDE3OSwidXNlckluZm8iOiJ7XCJpZFwiOjUsXCJ1c2VybmFtZVwiOlwidGVzdDBcIn0ifQ.6I9tI3VMeN8XPTsXCLznSvOUG5eElO4bE_w7Rn2UQWk
+
+content=今天天气真热
+
+
+### 编号6 eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjEyMDQ4ODgsImV4cCI6MTcyMTIxMjA4OCwidXNlckluZm8iOiJ7XCJpZFwiOjYsXCJ1c2VybmFtZVwiOlwidGVzdDFcIn0ifQ.20dfuW1MD3HgsbcJu-Ct4EWojNrvn_L0J9l7po6anek
