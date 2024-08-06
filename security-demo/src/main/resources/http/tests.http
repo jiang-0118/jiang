@@ -1,0 +1,14 @@
+POST http://localhost:8080/login
+Content-Type: application/json
+
+{
+  "username": "123456@qq.com",
+  "password": "123"
+}
+
+
+
+### 测试API
+GET http://localhost:8080/api
+Accept: application/json
+token: eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjI5Mjg4NjIsImV4cCI6MTcyMjkyOTM2Miwic3lzVXNlcklkIjozfQ.9j6723Hpbu9ThCIVyr94pFtJ5nYGFGyeps_klv1XZQk
