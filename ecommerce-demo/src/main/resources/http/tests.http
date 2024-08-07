@@ -1,0 +1,24 @@
+### 登录
+POST http://localhost:8080/user/login
+Content-Type: application/json
+
+{
+  "username": "18627967620@163.com",
+  "password": "123"
+}
+
+### 批量查询
+POST http://localhost:8080/good/findGoodsByIds
+Content-Type: application/json
+token: eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjMwMTg0OTUsImV4cCI6MTcyMzAyNTY5NSwidXNlckluZm8iOiJ7XCJhY2NvdW50Tm9uRXhwaXJlZFwiOnRydWUsXCJhY2NvdW50Tm9uTG9ja2VkXCI6dHJ1ZSxcImNyZWRlbnRpYWxzTm9uRXhwaXJlZFwiOnRydWUsXCJlbmFibGVkXCI6dHJ1ZSxcImlkXCI6MSxcInBhc3N3b3JkXCI6XCIyMDJjYjk2MmFjNTkwNzViOTY0YjA3MTUyZDIzNGI3MFwiLFwidXNlcm5hbWVcIjpcIjE4NjI3OTY3NjIwQDE2My5jb21cIn0ifQ.Vy_tNmvZzrtI7MuOjgl4Nmn44xrALc6shUjGPI-IDEI
+
+{
+  "ids": [
+    {
+      "id": 3
+    },
+    {
+      "id": 4
+    }
+  ]
+}
