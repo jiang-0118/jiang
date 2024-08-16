@@ -1,0 +1,64 @@
+### 通过网关访问用户服务
+POST http://localhost:7000/user/login
+Content-Type: application/json
+
+{
+  "username": "18627967620@163.com",
+  "password": "123"
+}
+
+###  测试通过网关访问账户服务
+POST http://localhost:7000/balance/deductBalance
+Content-Type: application/json
+token: eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjM0NDUyOTYsImV4cCI6MTcyMzQ1MjQ5NiwidXNlckluZm8iOiJ7XCJpZFwiOjEsXCJ1c2VybmFtZVwiOlwiMTg2Mjc5Njc2MjBAMTYzLmNvbVwifSJ9.zst4InW7ASNyU3pHq823KUNozzPh-keBcWWSwoPc5yA
+
+{
+  "userId":1,
+  "balance":500
+}
+
+###  测试通过网关访问商品服务
+POST http://localhost:7000/goods/list
+Content-Type: application/json
+token: eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjM1MTgyNjgsImV4cCI6MTcyMzUyNTQ2OCwidXNlckluZm8iOiJ7XCJpZFwiOjEsXCJ1c2VybmFtZVwiOlwiMTg2Mjc5Njc2MjBAMTYzLmNvbVwifSJ9.2e89pJ2NcyoBDDwOOHbrFT9jwKzCnzKAsh8TMXRPKpc
+
+{
+  "ids": [
+    {"id": 3},
+    {"id": 4}
+  ]
+}
+
+###  测试通过网关访问商品扣减服务
+POST http://localhost:7000/goods/deductGoods
+Content-Type: application/json
+token: eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjM0NTI4MDcsImV4cCI6MTcyMzQ2MDAwNywidXNlckluZm8iOiJ7XCJpZFwiOjEsXCJ1c2VybmFtZVwiOlwiMTg2Mjc5Njc2MjBAMTYzLmNvbVwifSJ9.EehgEJUkT2ALDiYrNvmxIbLrbBYcT1bTnt8k_4RPBME
+
+[
+  {
+    "goodsId": 3,
+    "count": 2
+  },
+  {
+    "goodsId": 4,
+    "count": 2
+  }
+]
+
+###  测试通过网关访问订单服务
+POST http://localhost:7000/order/createOrder
+Content-Type: application/json
+token: eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjM2OTIwNTcsImV4cCI6MTcyMzY5OTI1NywidXNlckluZm8iOiJ7XCJpZFwiOjEsXCJ1c2VybmFtZVwiOlwiMTg2Mjc5Njc2MjBAMTYzLmNvbVwifSJ9.ihROjvPuN6IrHi9B71pvApSUbXLJVvloGYT1KLH019k
+
+{
+  "orderItems": [
+    {
+      "goodsId": 3,
+      "count": 10
+    },
+    {
+      "goodsId": 4,
+      "count": 5
+    }
+  ]
+}

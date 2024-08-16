@@ -1,0 +1,10 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: ms-user
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: ccb2b4f5-3156-4fc3-b81d-06bf528627b8

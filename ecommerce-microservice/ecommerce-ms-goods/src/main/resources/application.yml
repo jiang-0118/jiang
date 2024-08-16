@@ -1,0 +1,37 @@
+spring:
+  datasource:
+    username: root
+    password:
+    url: jdbc:mysql://localhost:3306/e_ecommerce?useSSL=false&serverTimezone=UTC&allowMultiQueries=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  application:
+    name: ms-goods
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: ccb2b4f5-3156-4fc3-b81d-06bf528627b8
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+  mapper-locations: classpath:mapper/*.xml
+server:
+  port: 8082
+seata:
+  registry:
+    type: nacos
+    nacos:
+      application: seata-tc-server
+      server-addr: 127.0.0.1:8848
+      group: DEFAULT_GROUP
+      username: nacos
+      password: nacos
+      namespace: ccb2b4f5-3156-4fc3-b81d-06bf528627b8
+  # 事务分组
+  tx-service-group: seata-softeem
+  service:
+    vgroup-mapping:
+      seata-softeem: SH
+  # 切换模式 只需要把 XA改为AT就变成了AT模式
+  data-source-proxy-mode: AT
